@@ -12,7 +12,7 @@ export function PokemonCard({name}: PokemonCardProps) {
           key={name}
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            {name}
+            {name.charAt(0).toUpperCase() + name.slice(1)}
           </h2>
         </Link>
     )

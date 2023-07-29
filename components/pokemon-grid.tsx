@@ -3,8 +3,15 @@
 
 import { useState } from "react"
 
-export function PokemonGrid() {
+interface PokemonGridProps {
+    pokemonList: any
+}
+
+export function PokemonGrid({pokemonList}: PokemonGridProps) {
     const [text, setText] = useState("")
+
+    // test
+    console.log(pokemonList)
 
     return (
         <>
