@@ -24,3 +24,5 @@ Created the pokemon detail page to show the image when clicking the pokemon name
 Added back button to go back to home page
 
 Added 'No Result' message when no pokemons found
+
+Deployed to Vercel (https://pokemon-app-tawny-zeta.vercel.app/)
