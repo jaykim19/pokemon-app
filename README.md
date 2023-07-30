@@ -22,3 +22,5 @@ Created a pokemonname page to go to the detail page when pokemon is clicked
 Added [pokemonName] folder to create the pokemon detail page to match up with the name that is clicked
 Created the pokemon detail page to show the image when clicking the pokemon name
 Added back button to go back to home page
+
+Added 'No Result' message when no pokemons found

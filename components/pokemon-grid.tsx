@@ -10,9 +10,7 @@ interface PokemonGridProps {
 
 export function PokemonGrid({pokemonList}: PokemonGridProps) {
     const [text, setText] = useState("")
-
-    // test
-    console.log(pokemonList)
+    
     const searchFilter = (pokemonList: any) => {
         return pokemonList.filter((pokemon: any) => pokemon.name.toLowerCase().includes(text.toLowerCase()))
     }
@@ -30,21 +28,33 @@ export function PokemonGrid({pokemonList}: PokemonGridProps) {
                     value={text} 
                     id="pokemonName" 
                     autoComplete="off" 
-                    placeholder="Enter Your Pokemon Name..." 
-                    onChange={(event) => setText(event.target.value)} 
+                    placeholder="Enter Your Pokemon Name"
+                    onChange={(event) => setText(event.target.value)}
                 />
             </div>
             <h3 className="text-4xl pt-12 pb-6 text-center">Pokemons</h3>
 
-            <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-5 lg:text-left">
-                {
-                    filteredPokemons.map((pokemon: any) => {
-                        return (
-                            <PokemonCard name={pokemon.name} />
-                        )
-                    })
-                }
-            </div>
+            {
+                filteredPokemons.length === 0 ?
+                (
+                    <div className="mb-32 grid text-center">
+                        <h2 className="text-2xl py-6 text-center">No Pokemons Found!!!</h2>
+                    </div>
+                )
+                :
+                (
+                    <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-7 lg:text-left">
+                        {
+                            filteredPokemons.map((pokemon: any) => {
+                                return (
+                                    <PokemonCard name={pokemon.name} />
+                                )
+                            })
+                        }
+                    </div>
+                )
+            }
+            
         </>
     )
 }
