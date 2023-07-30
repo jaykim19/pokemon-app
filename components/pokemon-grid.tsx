@@ -2,6 +2,7 @@
 // should be used because of useState
 
 import { useState } from "react"
+import { PokemonCard } from "./pokemon-card"
 
 interface PokemonGridProps {
     pokemonList: any
@@ -12,6 +13,11 @@ export function PokemonGrid({pokemonList}: PokemonGridProps) {
 
     // test
     console.log(pokemonList)
+    const searchFilter = (pokemonList: any) => {
+        return pokemonList.filter((pokemon: any) => pokemon.name.toLowerCase().includes(text.toLowerCase()))
+    }
+
+    const filteredPokemons = searchFilter(pokemonList);
 
     return (
         <>
@@ -29,6 +35,16 @@ export function PokemonGrid({pokemonList}: PokemonGridProps) {
                 />
             </div>
             <h3 className="text-4xl pt-12 pb-6 text-center">Pokemons</h3>
+
+            <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-5 lg:text-left">
+                {
+                    filteredPokemons.map((pokemon: any) => {
+                        return (
+                            <PokemonCard name={pokemon.name} />
+                        )
+                    })
+                }
+            </div>
         </>
     )
 }
